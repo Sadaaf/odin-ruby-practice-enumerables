@@ -58,6 +58,16 @@ module Enumerable
     return self.length
   end
 
+  def my_map
+    result = []
+    if block_given?
+      my_each do |element|
+        result << yield(element)
+      end
+      return result
+    end
+  end
+
 end
 
 # You will first have to define my_each
