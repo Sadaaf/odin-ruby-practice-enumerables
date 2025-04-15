@@ -36,6 +36,17 @@ module Enumerable
     end
   end
 
+  def my_none?
+    if block_given?
+      my_each do |element|
+        if yield(element)
+          return false
+        end
+        return true
+      end
+    end
+  end
+
 end
 
 # You will first have to define my_each
