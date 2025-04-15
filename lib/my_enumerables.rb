@@ -9,13 +9,13 @@ module Enumerable
   end
 
   def my_select
-    a = []
+    result = []
     if block_given?
-      for i in 0...self.length
-        a << self[i] if yield(self[i])
+      my_each do |element|
+        result << element if yield(element)
       end
     end
-    a
+    result
   end
 
   def my_all
