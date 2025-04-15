@@ -68,6 +68,16 @@ module Enumerable
     end
   end
 
+  def my_inject(initial_value = nil)
+    accumulator = initial_value
+    if block_given?
+      my_each do |element|
+        accumulator = yield(accumulator, element)        
+      end
+      return accumulator
+    end
+  end
+
 end
 
 # You will first have to define my_each
