@@ -1,12 +1,11 @@
 module Enumerable
   # Your code goes here
   def my_each_with_index
-    if block_given?
-      for i in 0...self.length
-        yield(self[i], i)
-      end
+    index = 0
+    my_each do |element|
+      yield(element, index)
+      index+=1
     end
-    self
   end
 
   def my_select
@@ -17,6 +16,10 @@ module Enumerable
       end
     end
     a
+  end
+
+  def my_all
+    
   end
 end
 
