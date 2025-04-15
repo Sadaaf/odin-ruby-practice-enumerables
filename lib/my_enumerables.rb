@@ -18,8 +18,13 @@ module Enumerable
     result
   end
 
-  def my_all
-    
+  def my_all?
+    if block_given?
+      my_each do |element|
+        return false if !yield(element)
+      end
+      return true
+    end
   end
 end
 
